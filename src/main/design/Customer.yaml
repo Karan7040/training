@@ -1,0 +1,111 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /customer/updateCustomer:
+    put:
+      tags:
+        - customer-controller
+      operationId: updateCustomer
+      parameters:
+        - name: newCustomer
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/CustomerDto'
+      responses:
+        "200":
+          description: OK
+  /customer/updateCustomerDetails/{custId}:
+    post:
+      tags:
+        - customer-controller
+      operationId: updateCustomerDetails
+      parameters:
+        - name: custId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: address
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: firstName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /customer/getCustomerDetails/{custId}:
+    get:
+      tags:
+        - customer-controller
+      operationId: getCustomerDetails
+      parameters:
+        - name: custId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /customer/deleteCustomer/{custId}:
+    delete:
+      tags:
+        - customer-controller
+      operationId: deleteCustomer
+      parameters:
+        - name: custId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    CustomerDto:
+      required:
+        - custId
+      type: object
+      properties:
+        custId:
+          maxLength: 10
+          minLength: 5
+          type: string
+        address:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    Customer:
+      type: object
+      properties:
+        custId:
+          type: string
+        address:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
