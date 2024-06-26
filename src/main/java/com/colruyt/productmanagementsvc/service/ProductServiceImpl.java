@@ -33,12 +33,12 @@ public class ProductServiceImpl implements ProductService {
         Product product = Product.builder().pcode(productDto.getPcode()).pcost(productDto.getPcost())
                 .pdisc(productDto.getPdisc()).pid(productDto.getPid())
                 .pgst(productDto.getPgst()).build();
-        int rowAffected=productJdbcRepository.insertProduct(product);
-        return rowAffected>0;
+        int rowAffected = productJdbcRepository.insertProduct(product);
+        return rowAffected > 0;
     }
 
     @Override
-    public void deleteProduct(String pid){
+    public void deleteProduct(String pid) {
         productsRepository.deleteById(pid);
 
     }
@@ -46,8 +46,8 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(rollbackFor = ProductNotFoundException.class)
     @Override
     public boolean updateProduct(String pid, UpdateProductDto updateProductDto) {
-        int rowAffected= productJdbcRepository.updateProductWithPid(pid,updateProductDto);
-        return rowAffected>0;
+        int rowAffected = productJdbcRepository.updateProductWithPid(pid, updateProductDto);
+        return rowAffected > 0;
     }
 
 

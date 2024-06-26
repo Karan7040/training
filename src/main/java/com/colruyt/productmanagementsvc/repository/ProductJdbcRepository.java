@@ -24,8 +24,8 @@ public class ProductJdbcRepository {
 
 
     public int updateProductWithPid(String pid, UpdateProductDto updateProductDto) {
-        SqlParameterSource sqlParameterSource=new MapSqlParameterSource().addValue("pid",pid).addValue("pcode",updateProductDto.getPcode())
-                .addValue("pcost",updateProductDto.getPcost());
-        return namedParameterJdbcTemplate.update("update PRODUCTS SET PCODE=:pcode,PCOST=:pcost WHERE PID=:pid",sqlParameterSource);
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("pid", pid).addValue("pcode", updateProductDto.getPcode())
+                .addValue("pcost", updateProductDto.getPcost());
+        return namedParameterJdbcTemplate.update("update PRODUCTS SET PCODE=:pcode,PCOST=:pcost WHERE PID=:pid", sqlParameterSource);
     }
 }

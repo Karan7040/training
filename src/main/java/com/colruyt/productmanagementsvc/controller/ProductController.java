@@ -16,43 +16,35 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/Product/{pid}")
-    public ResponseEntity<ProductDto> getProductDetails(@Valid @PathVariable("pid") String pid)
-    {
+    public ResponseEntity<ProductDto> getProductDetails(@Valid @PathVariable("pid") String pid) {
 
-            return new ResponseEntity<>(productService.getProductDetails(pid), HttpStatus.OK);
+        return new ResponseEntity<>(productService.getProductDetails(pid), HttpStatus.OK);
     }
 
     @PostMapping("/insertProduct")
-    public ResponseEntity insertProduct(@RequestBody ProductDto productDto)
-    {
-        if(productService.insertProduct(productDto))
-        {
+    public ResponseEntity insertProduct(@RequestBody ProductDto productDto) {
+        if (productService.insertProduct(productDto)) {
             return new ResponseEntity(HttpStatus.CREATED);
-        }
-        else
+        } else
             return new ResponseEntity<>(HttpStatus.ALREADY_REPORTED);
     }
 
     @DeleteMapping("/deleteProduct/{pid}")
-    public ResponseEntity deleteProduct(@PathVariable("pid") String pid)
-    {
+    public ResponseEntity deleteProduct(@PathVariable("pid") String pid) {
         productService.deleteProduct(pid);
         return new ResponseEntity(HttpStatus.ACCEPTED);
 
     }
 
     @PutMapping("/updateProduct/{pid}")
-     public ResponseEntity updateProduct(@PathVariable("pid") String pid, UpdateProductDto updateProductDto)
-     {
+    public ResponseEntity updateProduct(@PathVariable("pid") String pid, UpdateProductDto updateProductDto) {
 
-         if(productService.updateProduct(pid,updateProductDto))
-         {
-             return new ResponseEntity(HttpStatus.ACCEPTED);
-         }
-         else
-             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (productService.updateProduct(pid, updateProductDto)) {
+            return new ResponseEntity(HttpStatus.ACCEPTED);
+        } else
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-     }
+    }
 
 
 }
