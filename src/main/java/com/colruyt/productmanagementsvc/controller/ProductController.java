@@ -31,6 +31,7 @@ public class ProductController {
 
     @DeleteMapping("/deleteProduct/{pid}")
     public ResponseEntity deleteProduct(@PathVariable("pid") String pid) {
+
         productService.deleteProduct(pid);
         return new ResponseEntity(HttpStatus.ACCEPTED);
 
@@ -38,7 +39,6 @@ public class ProductController {
 
     @PutMapping("/updateProduct/{pid}")
     public ResponseEntity updateProduct(@PathVariable("pid") String pid, UpdateProductDto updateProductDto) {
-
         if (productService.updateProduct(pid, updateProductDto)) {
             return new ResponseEntity(HttpStatus.ACCEPTED);
         } else
