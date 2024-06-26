@@ -1,9 +1,7 @@
 package com.example.employeemanagement.controller;
 
-import com.example.employeemanagement.model.dto.EmployeeDTO;
 import com.example.employeemanagement.model.entity.EmployeeEntity;
 import com.example.employeemanagement.repository.EmployeeRepository;
-import com.example.employeemanagement.service.EmployeeService;
 import com.example.employeemanagement.service.EmployeeServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,25 +23,24 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @PostMapping("/updateDetails")
-    public void update(){
+    public void update() {
         employeeService.updateEmployeeDetail();
     }
+
     @GetMapping("/getAllDetails/{name}")
-    public List<EmployeeEntity> getAllDetails(@PathVariable String name){
+    public List<EmployeeEntity> getAllDetails(@PathVariable String name) {
         return employeeRepository.getName(name);
     }
+
     @PostMapping("/deleteAllDetails/{id}")
-    public void deleteDatas(@Valid @PathVariable Integer id){
+    public void deleteDatas(@Valid @PathVariable Integer id) {
         employeeRepository.delete(id);
     }
+
     @PostMapping("/updateNameById/{id}/{name}")
-    public void updateName(@PathVariable Integer id,@PathVariable String name){
+    public void updateName(@PathVariable Integer id, @PathVariable String name) {
         employeeService.updateEmployeeName(id, name);
     }
-
-
-
-
 
 
 }
