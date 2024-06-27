@@ -1,10 +1,12 @@
 package com.example.customermanagement.service;
+
 import com.example.customermanagement.model.dto.CustomerDto;
 import com.example.customermanagement.model.entity.Customer;
 import com.example.customermanagement.repository.CustomerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
 import java.util.Optional;
 
 @Service
@@ -23,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomerDetails(String custId, String address, String firstName, String lastName) {
-
+// todo : variable conventions pls
         Optional<Customer> CustomerId = customerRepository.findById(custId);
         if (CustomerId.isPresent()) {
             Customer customer = CustomerId.get();
