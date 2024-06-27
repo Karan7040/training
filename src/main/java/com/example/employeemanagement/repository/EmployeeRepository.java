@@ -10,7 +10,7 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Intege
     @Query("UPDATE EmployeeEntity e SET e.empName = :empName, e.email = :email, e.salary = :salary, e.mobile = :mobile WHERE e.empId = :empId")
     public void updateEmployeeById(int empId, String empName, String email, double salary, String mobile);
 
-
+// todo : this is already an employee repository why again to say deleteEMPLOYEEById ? just say deleteById
     @Query(value = "DELETE FROM EMPLOYEE_DATA WHERE EMP_ID = :empId", nativeQuery = true)
     public void deleteEmployeeById(int empId);
 }

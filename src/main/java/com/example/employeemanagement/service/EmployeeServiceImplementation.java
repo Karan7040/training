@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class EmployeeServiceImplementation {
-
+// todo : constructor injection pls
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -39,7 +39,7 @@ public class EmployeeServiceImplementation {
         String sql = "INSERT INTO EMPLOYEE_DATA (EMP_ID, EMP_NAME, EMAIL, SALARY, MOBILE) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, employee.getEmpId(), employee.getEmpName(), employee.getEmail(), employee.getSalary(), employee.getMobile());
     }
-
+// todo : no more than 3 parameters in method
     // UPDATING USING JPQL  USING @QUERY
     public void updateEmployeeById(int empId, String empName, String email, double salary, String mobile) {
         employeeRepository.updateEmployeeById(empId, empName, email, salary, mobile);
