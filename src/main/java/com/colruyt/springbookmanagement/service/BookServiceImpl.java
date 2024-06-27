@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-
+// only fetch and update.. call in the service..
+// flow should be controller -> service -> repository -> database
 public class BookServiceImpl implements BookService{
     @Autowired
     private BookJpaRepository bookJpaRepository;

@@ -15,6 +15,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "BOOK")
+// todo: this is an entity.. should suffice with Entity, BookEntity?
 public class BookModel {
     @Id
     @Column(name = "ID")
