@@ -1,6 +1,9 @@
 package com.colruyt.productmanagementsvc.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +18,7 @@ import java.io.Serializable;
 @Builder
 @Table(name = "PRODUCTS")
 public class Product implements Serializable {
-
+// todo : name variales properly
     private static final long serialVersionUID = 1L;
 
     @Id

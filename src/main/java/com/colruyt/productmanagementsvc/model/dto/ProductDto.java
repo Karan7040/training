@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ProductDto {
-
+// todo : reformat code
     @NotNull
     @Size(max = 1,min=1,message = "PID should contain only 4 characters")
     private String pid;
-
+// todo : naming convetion,more expressive
     @Size(max = 4,min=4,message = "PCODE should contain only 4 characters")
-    private String pcode;
+    private String pinCode;
 
     @Size(max = 4,min=4,message = "PCOST should contain only 4 characters")
     private String pcost;
