@@ -18,7 +18,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Table(name = "CUSTOMER")
 public class Customer implements Serializable {
-//
+//TODO : WHAT VALIDATIONS ARE DOINT THE ENTITY ?
 //    private static final long serialVersionUID = 1L;
 
     @Id
