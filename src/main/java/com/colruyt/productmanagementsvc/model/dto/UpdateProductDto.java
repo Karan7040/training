@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateProductDto {
-    String pcode;
-    String pcost;
+    String productCode;
+    String productCost;
 }

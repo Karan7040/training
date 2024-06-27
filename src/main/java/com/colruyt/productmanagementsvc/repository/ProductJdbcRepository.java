@@ -12,8 +12,12 @@ import org.springframework.stereotype.Repository;
 
 public class ProductJdbcRepository {
 
-    @Autowired
+
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    public ProductJdbcRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    }
 
     public int insertProduct(Product product) {
         SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("pid", product.getPid())
@@ -23,9 +27,9 @@ public class ProductJdbcRepository {
     }
 
 
-    public int updateProductWithPid(String pid, UpdateProductDto updateProductDto) {
-        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("pid", pid).addValue("pcode", updateProductDto.getPcode())
-                .addValue("pcost", updateProductDto.getPcost());
+    public int updateProductWithPid(String productId, UpdateProductDto updateProductDto) {
+        SqlParameterSource sqlParameterSource = new MapSqlParameterSource().addValue("pid", productId).addValue("pcode", updateProductDto.getProductCode())
+                .addValue("pcost", updateProductDto.getProductCode());
         return namedParameterJdbcTemplate.update("update PRODUCTS SET PCODE=:pcode,PCOST=:pcost WHERE PID=:pid", sqlParameterSource);
     }
 }

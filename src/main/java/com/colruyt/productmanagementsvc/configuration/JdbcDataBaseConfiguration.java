@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class JdbcDataBaseConfiguration {
-// todo : very good
+    // todo : very good
     @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource dataSource) {
         return new NamedParameterJdbcTemplate(dataSource);
