@@ -12,12 +12,14 @@ public class BookMgmtRepository {
     private JdbcTemplate jdbcTemplate;
 
     public int getUpdatebookDescription() {
-
-        String SQL =
+        return 0;
 
     }
 
-    public int updatebookDescription
+    public int updatebookDescription(){
+        return 0;
+    }
+
 
 
 }

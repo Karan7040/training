@@ -6,6 +6,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
+// todo : is this a dto or an entity?
 public class BookMgmtDto {
 
 

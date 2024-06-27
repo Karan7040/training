@@ -4,17 +4,15 @@ package com.example.bookmanagement.service;
 import com.example.bookmanagement.model.bookmgmtdto.BookMgmtDto;
 import com.example.bookmanagement.model.bookmgmtdto.entity.BookMgmtEntity;
 import com.example.bookmanagement.respository.BookMgmtRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+// todo: if you implements an interfacde.. keep an @Override check on method to ensure.. Overriding
 public class BookServiceImpl  implements BookMgmtService {
 
     @Autowired

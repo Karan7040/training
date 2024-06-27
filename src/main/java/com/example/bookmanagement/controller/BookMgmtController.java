@@ -8,7 +8,12 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +22,8 @@ import java.util.Optional;
 @Getter
 @Setter
 @RestController
-
+// todo : why getter? ,if using setter then why @autorwired.?
+// todo : if using RestController then why Controller
 public class BookMgmtController {
 
     @Autowired
@@ -34,6 +40,7 @@ public class BookMgmtController {
     }
 
     @GetMapping("/{Id}")
+    // todo: handle not found in exception handler
     public ResponseEntity<BookMgmtDto> getBookById(@PathVariable long id) {
         Optional<BookMgmtDto> book = bookMgmtService.getBookById(id);
         if (book.isPresent()) {
@@ -42,7 +49,7 @@ public class BookMgmtController {
             return ResponseEntity.notFound().build();
         }
     }
-
+// todo : small case for url
     @GetMapping("/{Id}")
     public ResponseEntity<BookMgmtDto> updateBook(@PathVariable long id, @RequestBody BookMgmtDto BookMgmtDto) {
         Optional<BookMgmtDto> book = bookMgmtService.updateBook(id, BookMgmtDto);
@@ -52,7 +59,8 @@ public class BookMgmtController {
             return ResponseEntity.notFound().build();
         }
 
-
+    }
+    // todo : use wrapper Void
         @DeleteMapping("/{Id}")
         public ResponseEntity<void> deleteBook(@PathVariable Long id){
             boolean delete = bookMgmtService.deleteBook(id);
@@ -64,5 +72,4 @@ public class BookMgmtController {
 
         }
 
-    }
     }
