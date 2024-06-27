@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class ProductDto {
 @Size(max =4,min = 1,message = "Invalid Size")
     private String pid;
-
+// pCode -> pineAppleCode?
     private String pcode;
 
     private String pcost;

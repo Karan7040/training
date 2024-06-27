@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
+    // todo : good
     private final ProductsRepositoryJpa productsRepositoryJpa;
     private final ProductRepositoryJdbc productRepositoryJdbc;
     @Override

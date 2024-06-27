@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ExceptionHandler {
+    // todo: use other name as this is clashing with the annotation
     @org.springframework.web.bind.annotation.ExceptionHandler(ProductExceptionHandler.class)
             public ProblemDetail handler()
     {
