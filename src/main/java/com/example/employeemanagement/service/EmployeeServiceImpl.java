@@ -28,6 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void updateEmployeeName(Integer id, String newName) {
         Optional<EmployeeEntity> optionalEmployee = employeeRepository.findById(id);
         if (optionalEmployee.isPresent()) {
+            // dont do get() on optional. what if employee is null?
             EmployeeEntity employee = optionalEmployee.get();
             employee.setEmpName(newName);
             employeeRepository.save(employee);

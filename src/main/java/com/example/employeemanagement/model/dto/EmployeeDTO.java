@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeDTO {
+    // todo : check names
     private Integer empId;
     private String empName;
     private Integer salary;
