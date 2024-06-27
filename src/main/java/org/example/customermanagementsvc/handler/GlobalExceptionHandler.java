@@ -10,9 +10,11 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+// todo: restcontrolleradvice.. if using controlleradvice use @responsebody on each method
 @ControllerAdvice
 
 public class GlobalExceptionHandler {
+    // todo ; don not use hard coded values -> Invalid Input
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ProblemDetail> handleConstraintViolationException(ConstraintViolationException exception) {
         String message = exception.getConstraintViolations().stream().map(ConstraintViolation::getMessage)

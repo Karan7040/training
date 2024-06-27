@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public class CustomerDao {
+    // todo : preferred construction inejction
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
