@@ -26,9 +26,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void updateCustomerDetails(String custId, String address, String firstName, String lastName) {
 // todo : variable conventions pls
-        Optional<Customer> CustomerId = customerRepository.findById(custId);
-        if (CustomerId.isPresent()) {
-            Customer customer = CustomerId.get();
+        Optional<Customer> customerId = customerRepository.findById(custId);
+        if (customerId.isPresent()) {
+            Customer customer = customerId.get();
             customer = Customer.builder()
                     .custId(customer.getCustId())
                     .address(address)

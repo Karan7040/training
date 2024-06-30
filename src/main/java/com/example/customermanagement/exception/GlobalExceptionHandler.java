@@ -30,4 +30,10 @@ public class GlobalExceptionHandler {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, message);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(problemDetail);
     }
+    @ExceptionHandler(CustomerNotFoundException.class)
+    public ResponseEntity<ProblemDetail> handleEmployeeIdNotFoundException(CustomerNotFoundException exception) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(problemDetail);
+    }
+
 }
