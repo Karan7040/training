@@ -7,6 +7,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CUSTOMER")
+@Builder
 public class Customer implements Serializable {
 //TODO : WHAT VALIDATIONS ARE DOINT THE ENTITY ?
 //    private static final long serialVersionUID = 1L;
